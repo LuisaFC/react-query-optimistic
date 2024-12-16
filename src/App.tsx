@@ -1,11 +1,16 @@
 import { ThemeProvider } from "./app/contexts/ThemeContext";
-import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { Header } from "./components/Header";
+import { UsersList } from "./components/UsersList";
 
 export function App() {
   return (
     <ThemeProvider>
-      <div>
-        <ThemeSwitcher />
+      <div className="max-w-[500px] mx-auto mt-20">
+        <Header />
+
+        <main>
+          <UsersList />
+        </main>
       </div>
     </ThemeProvider>
   );
