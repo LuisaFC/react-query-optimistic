@@ -1,12 +1,20 @@
 import { useUsers } from "@/app/hooks/useUsers";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Switch } from "./ui/switch";
+import { Skeleton } from "./ui/skeleton";
 
 export function UsersList() {
-  const {users} = useUsers()
+  const {users, isLoading} = useUsers()
 
   return (
     <div className="space-y-4">
+      {isLoading && (
+        <>
+          <Skeleton className="h-[74px]"/>
+          <Skeleton className="h-[74px]"/>
+          <Skeleton className="h-[74px]"/>
+        </>
+      )}
       {users.map((user) => (
         <div
           className="border p-4 rounded-md flex items-center justify-between"
