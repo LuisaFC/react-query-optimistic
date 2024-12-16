@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { UserForm } from "./components/UserForm";
 import { UsersList } from "./components/UsersList";
 import { queryClient } from "./app/lib/queryClient";
+import { Toaster } from "./components/ui/toaster";
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
             <UsersList />
           </main>
         </div>
+        <Toaster/>
       </ThemeProvider>
     </QueryClientProvider>
   );
