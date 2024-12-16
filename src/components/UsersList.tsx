@@ -1,25 +1,10 @@
+import { useUsers } from "@/app/hooks/useUsers";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Switch } from "./ui/switch";
 
-const users = [
-  {
-    id: Math.random(),
-    name: "Mateus Silva",
-    username: "maateusilva",
-  },
-  {
-    id: Math.random(),
-    name: "Grbaiel Alvers",
-    username: "souzagabriel1",
-  },
-  {
-    id: Math.random(),
-    name: "Guilherme Vieira",
-    username: "viieiiragui",
-  },
-];
-
 export function UsersList() {
+  const {users} = useUsers()
+
   return (
     <div className="space-y-4">
       {users.map((user) => (
