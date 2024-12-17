@@ -40,7 +40,7 @@ export function UsersList() {
             </div>
           </div>
           <Switch
-            //checked={user.blocked}
+            checked={user.blocked}
             onCheckedChange={(blocked) => handleBlockedChange(user.id, blocked)}
           />
         </div>
