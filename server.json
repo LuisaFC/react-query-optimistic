@@ -4,13 +4,13 @@
       "id": "123",
       "name": "Mateus Silva",
       "username": "maateusilva",
-      "blocked": false
+      "blocked": true
     },
     {
       "id": "456",
       "name": "Grbaiel Alvers",
       "username": "souzagabriel1",
-      "blocked": false
+      "blocked": true
     },
     {
       "id": "789",
@@ -29,6 +29,24 @@
       "blocked": false,
       "name": "Luisa",
       "username": ""
+    },
+    {
+      "id": "d9e9",
+      "blocked": false,
+      "name": "tESTE",
+      "username": "teste"
+    },
+    {
+      "id": "964d",
+      "blocked": false,
+      "name": "6545",
+      "username": "56465"
+    },
+    {
+      "id": "accd",
+      "blocked": false,
+      "name": "123",
+      "username": "sad"
     }
   ]
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:server": "json-server server.json",
+    "dev:server": "json-server server.json --port 5000",
     "build": "tsc -b && vite build"
   },
   "dependencies": {
