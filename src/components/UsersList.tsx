@@ -2,9 +2,15 @@ import { useUsers } from "@/app/hooks/useUsers";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Switch } from "./ui/switch";
 import { Skeleton } from "./ui/skeleton";
+import { useUpdateUser } from "@/app/hooks/useUpdateUser";
 
 export function UsersList() {
   const {users, isLoading} = useUsers()
+  const {updateUser} = useUpdateUser()
+
+  async function handleBlockedChange(id: string, blocked: boolean){
+    await updateUser({id, blocked})
+  }
 
   return (
     <div className="space-y-4">
@@ -33,7 +39,10 @@ export function UsersList() {
               <small className="text-muted-foreground">@{user.username}</small>
             </div>
           </div>
-          <Switch />
+          <Switch
+            //checked={user.blocked}
+            onCheckedChange={(blocked) => handleBlockedChange(user.id, blocked)}
+          />
         </div>
       ))}
     </div>

@@ -1,13 +1,13 @@
 import { sleep } from "../lib/utils";
 import { IUser } from "../types/IUser";
 
-type ICreateUserDTO = Omit<IUser, 'id'>
+type IUpdateUserDTO = Partial<Omit<IUser, 'id'>> & { id: string }
 
-export async function createUser({name, username, blocked}: ICreateUserDTO){
+export async function updateUser({id, name, username, blocked}: IUpdateUserDTO){
   await sleep()
 
-  const response = await fetch("http://localhost:3000/users", {
-    method: "POST",
+  const response = await fetch(`http://localhost:3000/users/${id}`, {
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json"
     },
