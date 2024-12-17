@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateUser } from "../services/updateUser";
 import { USERS_QUERY_KEY } from "./useUsers";
 import { IUser } from "../types/IUser";
+import { toast } from "sonner";
 
 
 export function useUpdateUser() {
@@ -28,6 +29,8 @@ export function useUpdateUser() {
         USERS_QUERY_KEY,
         context?.previousUsers
       );
+
+      toast.error('Erro ao atualzar o usuário')
     }
   })
 
