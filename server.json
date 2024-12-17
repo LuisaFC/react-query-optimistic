@@ -19,34 +19,22 @@
       "blocked": true
     },
     {
-      "id": "3ef6",
+      "id": "fcc0",
       "blocked": false,
       "name": "Luisa",
       "username": "LuisaFC"
     },
     {
-      "id": "4359",
+      "id": "90c5",
       "blocked": false,
-      "name": "Luisa",
-      "username": ""
+      "name": "Teste 1",
+      "username": "Teste1"
     },
     {
-      "id": "d9e9",
-      "blocked": false,
-      "name": "tESTE",
-      "username": "teste"
-    },
-    {
-      "id": "964d",
-      "blocked": false,
-      "name": "6545",
-      "username": "56465"
-    },
-    {
-      "id": "accd",
-      "blocked": false,
-      "name": "123",
-      "username": "sad"
+      "id": "bb95",
+      "blocked": true,
+      "name": "Teste2",
+      "username": "Teste2"
     }
   ]
 }
