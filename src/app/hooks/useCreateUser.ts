@@ -1,8 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createUser } from "../services/createUser";
-import { USERS_QUERY_KEY } from "./useUsers";
-import { IUser } from "../types/IUser";
-
+import { USERS_QUERY_KEY, UsersQueryData } from "./useUsers";
 export const CREATE_USER_MUTATION_KEY = ['createUser']
 
 export function useCreateUser() {
@@ -13,11 +11,12 @@ export function useCreateUser() {
     onMutate: (variables) => {
       const tmpUserId = String(Math.random())
 
-      queryClient.setQueryData<IUser[]>(
+      queryClient.setQueryData<UsersQueryData>(
         USERS_QUERY_KEY,
         (old) => old?.concat({
           ...variables,
-          id: tmpUserId
+          id: tmpUserId,
+          status: 'pending'
         })
       );
 
@@ -26,7 +25,7 @@ export function useCreateUser() {
     onSuccess: async(data, _variables, context) => {
       await queryClient.cancelQueries({queryKey: USERS_QUERY_KEY})
 
-      queryClient.setQueryData<IUser[]>(
+      queryClient.setQueryData<UsersQueryData>(
         USERS_QUERY_KEY,
         (old) => old?.map(user => (
           user.id === context.tmpUserId? data : user
@@ -37,12 +36,14 @@ export function useCreateUser() {
     onError: async (_error, _variables, context) => {
       await queryClient.cancelQueries({queryKey: USERS_QUERY_KEY})
 
-      queryClient.setQueryData<IUser[]>(
+      queryClient.setQueryData<UsersQueryData>(
         USERS_QUERY_KEY,
-        (old) => old?.filter(user => (
-          user.id !== context?.tmpUserId
+        (old) => old?.map(user => (
+          user.id === context?.tmpUserId
+            ? {...user, status: 'error'}
+            : user
         ))
-      )
+      );
     }
   })
 
