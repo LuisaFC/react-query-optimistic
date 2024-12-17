@@ -1,5 +1,5 @@
 
-# React Query architecture and implementation studies
+# React Query Optimistic Updates
 
 This is a repository containing a project with an architecture based on React Query and Optimisc UI ​​practices.
 
