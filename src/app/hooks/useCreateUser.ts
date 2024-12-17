@@ -23,7 +23,9 @@ export function useCreateUser() {
 
       return {tmpUserId}
     },
-    onSuccess: (data, _variables, context) => {
+    onSuccess: async(data, _variables, context) => {
+      await queryClient.cancelQueries({queryKey: USERS_QUERY_KEY})
+
       queryClient.setQueryData<IUser[]>(
         USERS_QUERY_KEY,
         (old) => old?.map(user => (
@@ -32,7 +34,9 @@ export function useCreateUser() {
       );
     },
 
-    onError: (_error, _variables, context) => {
+    onError: async (_error, _variables, context) => {
+      await queryClient.cancelQueries({queryKey: USERS_QUERY_KEY})
+
       queryClient.setQueryData<IUser[]>(
         USERS_QUERY_KEY,
         (old) => old?.filter(user => (
